@@ -12,7 +12,7 @@ pub mod widget_definitions;
 const CMD_STRING_PLACEHODLER: &str = "{}";
 
 /// Run a command that was provided as an attribute. This command may use a placeholder ('{}')
-/// which will be replaced by the value provided as [arg]
+/// which will be replaced by the value provided as [`arg`]
 pub fn run_command<T: std::fmt::Display>(cmd: &str, arg: T) {
     let cmd = cmd.replace(CMD_STRING_PLACEHODLER, &format!("{}", arg));
     if let Err(e) = Command::new("bash").arg("-c").arg(cmd).output() {
@@ -29,8 +29,8 @@ struct BuilderArgs<'a, 'b, 'c, 'd, 'e> {
     widget_definitions: &'e HashMap<String, element::WidgetDefinition>,
 }
 
-/// Generate a [gtk::Widget] from a [element::WidgetUse].
-/// The widget_use may be using a builtin widget, or a custom [element::WidgetDefinition].
+/// Generate a [`gtk::Widget`] from a [`element::WidgetUse`].
+/// The widget_use may be using a builtin widget, or a custom [`element::WidgetDefinition`].
 ///
 /// Also registers all the necessary state-change handlers in the eww_state.
 ///
@@ -93,7 +93,7 @@ pub fn widget_use_to_gtk_widget(
     Ok(gtk_widget)
 }
 
-/// build a [gtk::Widget] out of a [element::WidgetUse] that uses a **builtin widget**.
+/// build a [`gtk::Widget`] out of a [`element::WidgetUse`] that uses a **builtin widget**.
 /// User defined widgets are handled by [widget_use_to_gtk_widget].
 ///
 /// Also registers all the necessary handlers in the `eww_state`.
