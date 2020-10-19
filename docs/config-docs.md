@@ -152,6 +152,16 @@ If you don't want a set interval and instead want it to tail (run the script whe
 </variables>
 ```
 
+#### The `{{<window_name>}}` var
+
+The `{{<window_name>}}` is a built-in variable that references the `<window name="<window_name>">` where `<window_name>` is your window name. In the example config, it's called `main_window`. 
+
+It can be used for e.g a widget close button. For that you would do:
+
+```xml
+    <button onclick="eww close {{main_window}}">Quit</button>
+```
+ 
 ### The `<definitions>` block
 In here you whole widget will be made, and you can also create your own widgets. Check [Widget Documentation]() for pre-defined widgets.
 
